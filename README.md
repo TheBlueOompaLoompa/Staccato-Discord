@@ -1,5 +1,5 @@
 # Staccato-Discord
-![staccato icon](staccato.jpg)
+<img src="staccato.jpg" alt="Staccato icon" width="48" height="48"/>
 The music bot for your discord server
 ## Requirements
 * Node - Version 12 or later
