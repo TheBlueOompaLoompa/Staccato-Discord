@@ -1,0 +1,30 @@
+{
+    "color": "#ffffff",
+    "title": "Staccato Bot Commands | Help",
+    "fields": [
+        {
+            "name": "${prefix}play",
+            "value": "Usage: ${prefix}play {Youtube URL or Video Title} | Plays the audio from the specified video"
+        },
+        {
+            "name": "${prefix}queue",
+            "value": "Usage: ${prefix}queue *{Youtube URL or Video Title} | Adds the video to the queue or if no video is provided then it will show you what's in the queue"
+        },
+        {
+            "name": "${prefix}stop",
+            "value": "Usage: ${prefix}stop | Stops the currently playing song"
+        },
+        {
+            "name": "${prefix}skip",
+            "value": "Usage: ${prefix}skip | Skips the currently playing song"
+        },
+        {
+            "name": "${prefix}vol",
+            "value": "Usage: ${prefix}vol {volume from 0 to 100} | Sets the volume the bot plays at"
+        },
+        {
+            "name": "${prefix}help",
+            "value": "Usage: ${prefix}help | Shows this menu"
+        }
+    ]
+}
