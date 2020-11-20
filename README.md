@@ -1,4 +1,4 @@
-<img src="staccato.jpg" alt="Staccato icon" width="32" height="32"/>
+![Staccato Badge](https://img.shields.io/badge/Staccato-Discord-blueviolet)
 # Staccato-Discord
 The music bot for your discord server
 ## Requirements
