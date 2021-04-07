@@ -29,7 +29,7 @@ BOT_PREFIX=WHATEVER YOU WANT TO BE USED BEFORE THE COMMANDS
 ```
 You don't need to add the bot prefix line because by default the prefix is ```.```
 # Starting the bot
-Just run npm start
+Just run `npm start`
 
 # License Info
    Copyright 2020 Ben Nack
