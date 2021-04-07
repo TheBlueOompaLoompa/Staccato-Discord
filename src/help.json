@@ -8,7 +8,7 @@
         },
         {
             "name": "${prefix}queue",
-            "value": "Usage: ${prefix}queue *{Youtube URL or Video Title} | Adds the video to the queue or if no video is provided then it will show you what's in the queue"
+            "value": "Usage: ${prefix}queue {Youtube URL or Video Title} | Adds the video to the queue or if no video is provided then it will show you what's in the queue"
         },
         {
             "name": "${prefix}stop",

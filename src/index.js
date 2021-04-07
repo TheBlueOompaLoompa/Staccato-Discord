@@ -22,6 +22,7 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
+	if(msg.author.id == 449964764798648360) return;
 	if(msg.content.startsWith(`${prefix}play`)) {
 		let voiceChannel = msg.member.voice.channel;
 
@@ -68,6 +69,8 @@ client.on('message', msg => {
 
 	if(msg.content.startsWith(`${prefix}stop`)) {
 		broadcast.end();
+		cmd.removeFromQueue(0);
+		cmd.leave();
 	}
 
 	if(msg.content.startsWith(`${prefix}time`)) {
@@ -123,6 +126,9 @@ client.on('message', msg => {
 	if(msg.content.startsWith(`${prefix}help`) && !msg.author.bot) {
 		cmd.showHelp(msg);
 		msg.delete();
+	}
+	if(msg.content.startsWith(`${prefix}oops`)) {
+		cmd.removeFromQueue(cmd.getQueueLength() - 1)
 	}
 });
 

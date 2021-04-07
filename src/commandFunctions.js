@@ -10,6 +10,8 @@ let volume = 1;
 
 let queue = [];
 
+let c;
+
 let playing = false;
 
 Array.prototype.insert = function ( index, item ) {
@@ -17,11 +19,14 @@ Array.prototype.insert = function ( index, item ) {
 };
 
 async function play(connection, url, msg) {
+	c = connection;
 	ytdl.getBasicInfo(url).then(info => {
 		let videoLength = info["videoDetails"]["lengthSeconds"]
-		if(videoLength < 900) {
+		if(videoLength < 1200 * 5) {
+			console.log("started downloading");
 			ytdl(url, {filter: 'audioonly', range: {start: 0}})
 				.pipe(fs.createWriteStream(__dirname + '/../song.mp3')).once("finish", () => {
+					console.log("downloaded");
 					playing = true;
 
 					broadcast.play(__dirname + '/../song.mp3', { highWaterMark: 50 });
@@ -36,12 +41,15 @@ async function play(connection, url, msg) {
 						queue = queue.slice(1);
 						playing = false;
 						
-						if(queue.length > 0)
+						if(queue.length > 0){
 							play(connection, queue[0], msg)
+						}else{
+							connection.disconnect();
+						}
 					})
 				});
 		} else {
-			msg.reply("That video is too long! The maximum is 15 minutes.");
+			msg.reply("That video is too long! The maximum is 25 minutes.");
 			queue = queue.slice(1);
 
 			playing = false;
@@ -168,6 +176,10 @@ function generateHelp() {
     return shownHelp;
 }
 
+function leave(){
+	c.disconnect();
+}
+
 function skipSong(voiceChannel, msg) {
     queue = queue.slice(1);
     broadcast.end();
@@ -188,6 +200,9 @@ module.exports = {
     },
     insertToQueue: (item) => {
         queue.insert(0, item);
+    },
+    removeFromQueue: (idx) => {
+    	queue.splice(idx, 1);
     },
     getQueue: (idx) => {
         return queue[idx];
@@ -216,4 +231,5 @@ module.exports = {
     showTime,
     nowPlaying,
     skipSong,
+    leave,
 }

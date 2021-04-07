@@ -14,7 +14,7 @@
     "discord.js": "^12.4.1",
     "dotenv": "^8.2.0",
     "simple-youtube-api": "^5.2.1",
-    "ytdl-core": "^4.0.5",
+    "ytdl-core": "^4.4.4",
     "ytdl-core-discord": "^1.2.4"
   }
 }
